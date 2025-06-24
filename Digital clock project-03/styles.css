@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+body {
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#clock {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    padding: 40px 100px;
+    margin-top: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: orange;
+
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+
+
+#clock:hover {
+    background-color: darkorange;
+    color: black;
+}
+#clock:active {
+    background-color: orange;
+    color: white;
+}
+#clock:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.7);
+}
