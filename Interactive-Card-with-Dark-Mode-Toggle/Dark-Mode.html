@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode</title>
+    <style>
+        body{
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .dark {
+      background-color: #121212;
+      color: white;
+    }
+
+        .container{
+            display :flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+
+        }
+        #btn{
+            font-size: 25px;
+            padding: 10px 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+    <button id = "btn">Dark Mode</button>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const body = document.body;
+
+        btn.addEventListener('click',()=>{
+            body.classList.toggle('dark');
+        
+            
+        });
+
+        let count = 0;
+        btn.addEventListener('clik',function(){
+            count++;
+                 display.innerText = `Button clicked ${count} time`;
+        });
+
+    </script>
+</body>
+</html>
