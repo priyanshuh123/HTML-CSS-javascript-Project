@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>start Stop Button</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            background-color: black;
+            color: wheat;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 20px;
+            padding: 50px;
+            border: 10px solid wheat;
+            border-radius: 10px;
+        }
+        .subContainer{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 600px;
+    border: 5px solid wheat;
+
+        }
+
+        h1{
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        p{
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            background-color: wheat;
+            color: black;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #NGU{
+            width: 200px;
+            height: 40px;
+            font-size: 20px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 2px solid wheat;
+            background-color: black;
+            color: wheat;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="subContainer">
+    <h1>Start Stop Button</h1>
+    <p>Click the buttons below to start or stop the process.</p>
+            <button id="start">Strart</button>
+            <button id="stop">Stop</button>
+            <input type="text" id="NGU" placeholder="">
+        </div>
+            </div>
+
+            <script>
+                
+                // const startButton = document.getElementById('start');
+                // const stopButton = document.getElementById('stop');
+                // const inputField = document.getElementById('NGU');
+
+                // startButton.addEventListener('click', () => {
+                //     inputField.value = 'Process Started';
+                //     inputField.style.backgroundColor = 'green';
+                // });
+
+                // stopButton.addEventListener('click', () => {
+                //     inputField.value = 'Process Stopped';
+                //     inputField.style.backgroundColor = 'red';
+                // });
+
+
+                 
+    // const startButton = document.getElementById('start');
+    // const stopButton = document.getElementById('stop');
+    // const inputField = document.getElementById('NGU');
+
+    // let intervalId; // Store interval ID
+
+    // startButton.addEventListener('click', () => {
+    //     // If already running, do nothing
+    //     if (intervalId) return;
+
+    //     intervalId = setInterval(() => {
+    //         inputField.value = 'NEVER GIVE UP';
+    //     }, 1000); // update every 1 sec (you can change this)
+    // });
+
+    // stopButton.addEventListener('click', () => {
+    //     clearInterval(intervalId);
+    //     intervalId = null;
+    //     inputField.value = ''; // clear the input (optional)
+    // });
+
+
+
+    
+    const startButton = document.getElementById('start');
+    const stopButton = document.getElementById('stop');
+    const inputField = document.getElementById('NGU');
+
+    let intervalId;
+
+    startButton.addEventListener('click', () => {
+        if (intervalId) return;
+
+        intervalId = setInterval(() => {
+            inputField.value = '';
+            setTimeout(() => {
+                inputField.value = 'NEVER GIVE UP';
+            }, 200); // short delay before writing again
+        }, 1000); // total interval loop
+    });
+
+    stopButton.addEventListener('click', () => {
+        clearInterval(intervalId);
+        intervalId = null;
+        inputField.value = '';
+    });
+
+
+
+
+                
+
+
+                
+            </script>
+</body>
+</html>

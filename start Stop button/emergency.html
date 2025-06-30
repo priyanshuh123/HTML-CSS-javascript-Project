@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>War Emergency Alarm</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: black;
+      color: wheat;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s;
+    }
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      border: 5px solid wheat;
+      border-radius: 12px;
+      text-align: center;
+    }
+    h1, h2 {
+      font-size: 2.5rem;
+      margin: 15px 0;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: wheat;
+      color: black;
+    }
+    .flashing {
+      animation: flash 0.5s infinite alternate;
+    }
+    @keyframes flash {
+      from { background-color: darkred; color: white; }
+      to { background-color: black; color: red; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="alertContainer">
+    <h1 id="mainTitle">Start Stop Button</h1>
+    <h2 id="subTitle">Click Start to begin alarm.</h2>
+    <button id="start">Start Alarm</button>
+    <button id="stop">Stop Alarm</button>
+  </div>
+
+  <!-- ✅ Working emergency sound hosted on pixabay -->
+  <audio id="siren" preload="auto" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_a3bc9576df.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <script>
+    const startBtn = document.getElementById('start');
+    const stopBtn = document.getElementById('stop');
+    const title = document.getElementById('mainTitle');
+    const subtitle = document.getElementById('subTitle');
+    const container = document.getElementById('alertContainer');
+    const siren = document.getElementById('siren');
+
+    startBtn.addEventListener('click', () => {
+      title.textContent = '🚨 WAR EMERGENCY ALERT 🚨';
+      subtitle.textContent = 'Take cover immediately! 🔥';
+      container.classList.add('flashing');
+
+      // play siren after user interaction
+      siren.play().catch(err => {
+        console.log("User gesture required:", err);
+        alert("Please click the Start button again to allow sound.");
+      });
+    });
+
+    stopBtn.addEventListener('click', () => {
+      title.textContent = 'Start Stop Button';
+      subtitle.textContent = 'Click Start to begin alarm.';
+      container.classList.remove('flashing');
+      siren.pause();
+      siren.currentTime = 0;
+    });
+  </script>
+</body>
+</html>
