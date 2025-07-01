@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+              <h1 id = "name">Priyanshu</h1>
+              <button id = "btn">Stop</button>
+
+<script>
+        const changeInnerhtml = function(){
+              document.getElementById("name").innerHTML = "Never Give Up" 
+        }
+             
+            const holdInnerhtml = setTimeout(changeInnerhtml,2000)
+
+            document.getElementById("btn")
+            .addEventListener("click",function(){
+                clearTimeout(holdInnerhtml)
+                console.log("Stopped")
+            })
+</script> 
+</body>
+</html>
